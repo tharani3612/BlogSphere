@@ -1,0 +1,422 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f6f9;
+  padding: 20px;
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.register-container {
+  display: flex;
+  width: 900px;
+  max-width: 100%;
+  min-height: 600px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  animation: registerAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes registerAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================
+   LEFT PANEL
+========================================= */
+
+.register-left {
+  flex: 1;
+  background: linear-gradient(135deg, #f7a028 0%, #e07b12 100%);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+  position: relative;
+}
+
+.register-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.register-brand span {
+  color: #1a1a1a;
+}
+
+/* =========================================
+   MASCOT & ANIMATION PHYSICS
+========================================= */
+
+.register-character-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.register-mascot-avatar {
+  width: 110px;
+  height: 110px;
+  background: #ffcc00;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset -4px -4px 0px rgba(0, 0, 0, 0.08);
+  animation: registerFloatMascot 3s ease-in-out infinite alternate;
+}
+
+.register-mascot-head {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.register-eye {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #111111;
+  border-radius: 50%;
+  top: 38px;
+  animation: registerBlinkEye 4s infinite;
+}
+
+.register-eye.left {
+  left: 28px;
+}
+
+.register-eye.right {
+  right: 28px;
+}
+
+.register-beak {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 16px solid #d9531e;
+  top: 58px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.register-mascot-shadow {
+  width: 70px;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  margin-top: 15px;
+  animation: registerShadowScale 3s ease-in-out infinite alternate;
+}
+
+@keyframes registerFloatMascot {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes registerShadowScale {
+  0% {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(0.75);
+    opacity: 0.12;
+  }
+}
+
+@keyframes registerBlinkEye {
+  0%,
+  90%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+/* =========================================
+   LEFT BRAND TEXT
+========================================= */
+
+.register-brand-text h1 {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.register-brand-text p {
+  font-size: 0.95rem;
+  opacity: 0.92;
+  line-height: 1.6;
+  max-width: 350px;
+}
+
+/* =========================================
+   RIGHT CARD
+========================================= */
+
+.register-card {
+  flex: 1;
+  padding: 42px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: registerSlideIn 0.6s ease-out forwards;
+}
+
+@keyframes registerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.register-heading h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 6px;
+}
+
+.register-heading p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+/* =========================================
+   FORM & INPUT GROUPS
+========================================= */
+
+.register-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.register-form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 7px;
+}
+
+.register-form-group input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.register-form-group input:focus {
+  border-color: #f7a028;
+  box-shadow: 0 0 0 4px rgba(247, 160, 40, 0.15);
+}
+
+.register-form-group input::placeholder {
+  color: #94a3b8;
+}
+
+.register-form-row {
+  display: flex;
+  gap: 12px;
+}
+
+/* =========================================
+   TERMS & CHECKBOX
+========================================= */
+
+.register-terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 4px 0 18px;
+  color: #475569;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  cursor: pointer;
+  user-select: none;
+}
+
+.register-terms input[type="checkbox"] {
+  margin-top: 2px;
+  accent-color: #e07b12;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.register-terms a {
+  color: #e07b12;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.register-terms a:hover {
+  color: #f7a028;
+  text-decoration: underline;
+}
+
+/* =========================================
+   BUTTON & FOOTER
+========================================= */
+
+.register-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #111111;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.register-btn:hover {
+  background-color: #2b2b2b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.register-btn:active {
+  transform: translateY(0);
+}
+
+.register-footer {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.register-footer a {
+  color: #e07b12;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 6px;
+  transition: color 0.2s ease;
+}
+
+.register-footer a:hover {
+  color: #f7a028;
+  text-decoration: underline;
+}
+
+/* =========================================
+   RESPONSIVE BREAKPOINTS
+========================================= */
+
+@media (max-width: 768px) {
+  .register-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .register-left {
+    padding: 32px 28px;
+  }
+
+  .register-card {
+    padding: 35px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-page {
+    padding: 12px;
+  }
+
+  .register-container {
+    border-radius: 18px;
+  }
+
+  .register-left {
+    padding: 24px 20px;
+  }
+
+  .register-mascot-avatar {
+    width: 85px;
+    height: 85px;
+  }
+
+  .register-eye {
+    width: 13px;
+    height: 13px;
+    top: 29px;
+  }
+
+  .register-eye.left {
+    left: 21px;
+  }
+
+  .register-eye.right {
+    right: 21px;
+  }
+
+  .register-beak {
+    top: 45px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 13px;
+  }
+
+  .register-card {
+    padding: 28px 20px;
+  }
+
+  .register-heading h2 {
+    font-size: 1.55rem;
+  }
+
+  .register-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}

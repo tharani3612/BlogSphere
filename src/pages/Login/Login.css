@@ -1,0 +1,372 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f6f9;
+  padding: 20px;
+}
+
+/* =========================================
+   CARD CONTAINER & ANIMATION
+========================================= */
+
+.login-container {
+  display: flex;
+  width: 900px;
+  max-width: 100%;
+  min-height: 560px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  animation: containerAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes containerAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================
+   LEFT BRAND PANEL
+========================================= */
+
+.login-left {
+  flex: 1;
+  background: linear-gradient(135deg, #f7a028 0%, #e07b12 100%);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+  position: relative;
+}
+
+.login-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.login-brand span {
+  color: #1a1a1a;
+}
+
+.brand-text h1 {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  line-height: 1.2;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.brand-text p {
+  font-size: 0.95rem;
+  opacity: 0.92;
+  line-height: 1.6;
+  max-width: 350px;
+}
+
+/* =========================================
+   MASCOT & FLOATING PHYSICS
+========================================= */
+
+.character-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.mascot-avatar {
+  width: 110px;
+  height: 110px;
+  background: #ffcc00;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset -4px -4px 0px rgba(0, 0, 0, 0.08);
+  animation: floatMascot 3s ease-in-out infinite alternate;
+}
+
+.mascot-head {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.eye {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #111111;
+  border-radius: 50%;
+  top: 38px;
+  animation: blinkEye 4s infinite;
+}
+
+.eye.left { left: 28px; }
+.eye.right { right: 28px; }
+
+.beak {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 16px solid #d9531e;
+  top: 58px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mascot-shadow {
+  width: 70px;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  margin-top: 15px;
+  animation: shadowScale 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatMascot {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
+}
+
+@keyframes shadowScale {
+  0% { transform: scale(1); opacity: 0.25; }
+  100% { transform: scale(0.75); opacity: 0.12; }
+}
+
+@keyframes blinkEye {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+/* =========================================
+   RIGHT SIDE FORM CARD
+========================================= */
+
+.login-card {
+  flex: 1;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.login-heading h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 6px;
+}
+
+.login-heading p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: #f7a028;
+  box-shadow: 0 0 0 4px rgba(247, 160, 40, 0.15);
+}
+
+.form-group input::placeholder {
+  color: #94a3b8;
+}
+
+/* =========================================
+   OPTIONS & CHECKBOX
+========================================= */
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 25px;
+}
+
+.login-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  cursor: pointer;
+  user-select: none;
+}
+
+.login-options input[type="checkbox"] {
+  accent-color: #e07b12;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.login-options a {
+  color: #e07b12;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.login-options a:hover {
+  color: #f7a028;
+  text-decoration: underline;
+}
+
+/* =========================================
+   BUTTON & FOOTER
+========================================= */
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #111111;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+  background-color: #2b2b2b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+.login-footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.login-footer a {
+  color: #e07b12;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 6px;
+  transition: color 0.2s ease;
+}
+
+.login-footer a:hover {
+  color: #f7a028;
+  text-decoration: underline;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+  
+  .login-left {
+    padding: 32px 28px;
+  }
+
+  .login-card {
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 12px;
+  }
+
+  .login-container {
+    border-radius: 18px;
+  }
+
+  .login-left {
+    padding: 24px 20px;
+  }
+
+  .mascot-avatar {
+    width: 85px;
+    height: 85px;
+  }
+
+  .eye {
+    width: 13px;
+    height: 13px;
+    top: 29px;
+  }
+
+  .eye.left { left: 21px; }
+  .eye.right { right: 21px; }
+
+  .beak {
+    top: 45px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 13px;
+  }
+
+  .login-card {
+    padding: 28px 20px;
+  }
+}

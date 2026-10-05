@@ -1,0 +1,115 @@
+/* ================================
+   FOOTER MAIN
+================================ */
+.footer {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 60px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ================================
+   FOOTER CONTAINER
+================================ */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+/* ================================
+   BRAND SECTION
+================================ */
+.footer-brand h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 12px 0;
+}
+
+.footer-brand h2 span {
+  color: #6366f1;
+}
+
+.footer-brand p {
+  max-width: 360px;
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ================================
+   LINKS & SOCIAL SECTIONS
+================================ */
+.footer-links,
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links h3,
+.footer-social h3 {
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.footer-links a,
+.footer-social a {
+  text-decoration: none;
+  color: #64748b;
+  font-size: 14px;
+  width: fit-content;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: #6366f1;
+  transform: translateX(3px); /* Subtle hover shift */
+}
+
+/* ================================
+   FOOTER BOTTOM
+================================ */
+.footer-bottom {
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* ================================
+   RESPONSIVE BREAKPOINTS
+================================ */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 20px;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 32px 16px;
+  }
+}
