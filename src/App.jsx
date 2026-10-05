@@ -15,15 +15,15 @@ import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
 
-        {/* LOGIN */}
+        {/* HOME */}
         <Route
           path="/"
-          element={<Login />}
+          element={<Home />}
         />
 
+        {/* LOGIN */}
         <Route
           path="/login"
           element={<Login />}
@@ -39,12 +39,6 @@ function App() {
         <Route
           path="/forgotpassword"
           element={<ForgotPassword />}
-        />
-
-        {/* HOME */}
-        <Route
-          path="/home"
-          element={<Home />}
         />
 
         {/* BLOGS */}
@@ -66,7 +60,6 @@ function App() {
         />
 
       </Routes>
-
     </BrowserRouter>
   );
 }
