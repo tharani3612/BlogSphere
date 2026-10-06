@@ -17,16 +17,17 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        {/* HOME */}
+        {/* LOGIN - FIRST PAGE */}
         <Route
           path="/"
-          element={<Home />}
+          element={<Login />}
         />
 
+        {/* HOME */}
         <Route
-  path="/home"
-  element={<Home />}
-/>
+          path="/home"
+          element={<Home />}
+        />
 
         {/* LOGIN */}
         <Route
