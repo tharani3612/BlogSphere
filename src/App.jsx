@@ -23,6 +23,11 @@ function App() {
           element={<Home />}
         />
 
+        <Route
+  path="/home"
+  element={<Home />}
+/>
+
         {/* LOGIN */}
         <Route
           path="/login"
